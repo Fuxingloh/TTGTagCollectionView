@@ -592,31 +592,10 @@
     label.label.textColor = label.selected ? config.tagSelectedTextColor : config.tagTextColor;
     label.label.backgroundColor = label.selected ? config.tagSelectedBackgroundColor : config.tagBackgroundColor;
 
-    if (config.tagShouldUseGradientBackgrounds) {
-        label.label.backgroundColor = [UIColor clearColor];
-        if (label.selected) {
-            ((CAGradientLayer *)label.label.layer).colors = @[(id)config.tagSelectedGradientBackgroundStartColor.CGColor,
-                                                              (id)config.tagSelectedGradientBackgroundEndColor.CGColor];
-        } else {
-            ((CAGradientLayer *)label.label.layer).colors = @[(id)config.tagGradientBackgroundStartColor.CGColor,
-                                                              (id)config.tagGradientBackgroundEndColor.CGColor];
-        }
-        ((CAGradientLayer *)label.label.layer).startPoint = config.tagGradientStartPoint;
-        ((CAGradientLayer *)label.label.layer).endPoint = config.tagGradientEndPoint;
-    }
-
     label.label.layer.cornerRadius = label.selected ? config.tagSelectedCornerRadius : config.tagCornerRadius;
     label.label.layer.borderWidth = label.selected ? config.tagSelectedBorderWidth : config.tagBorderWidth;
     label.label.layer.borderColor = (label.selected && config.tagSelectedBorderColor) ? config.tagSelectedBorderColor.CGColor : config.tagBorderColor.CGColor;
     label.label.layer.masksToBounds = YES;
-    
-    label.layer.shadowColor = (config.tagShadowColor ?: [UIColor clearColor]).CGColor;
-    label.layer.shadowOffset = config.tagShadowOffset;
-    label.layer.shadowRadius = config.tagShadowRadius;
-    label.layer.shadowOpacity = config.tagShadowOpacity;
-    label.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:label.bounds cornerRadius:label.label.layer.cornerRadius].CGPath;
-    label.layer.shouldRasterize = YES;
-    [label.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
     
     // Update frame
     CGSize size = [label sizeThatFits:CGSizeZero];
