@@ -592,6 +592,7 @@
     label.label.textColor = label.selected ? config.tagSelectedTextColor : config.tagTextColor;
     label.label.backgroundColor = label.selected ? config.tagSelectedBackgroundColor : config.tagBackgroundColor;
     label.label.opaque = YES;
+    label.backgroundColor = [UIColor white];  
     label.opaque = YES;
 
     label.label.layer.cornerRadius = label.selected ? config.tagSelectedCornerRadius : config.tagCornerRadius;
