@@ -591,6 +591,8 @@
     label.label.font = config.tagTextFont;
     label.label.textColor = label.selected ? config.tagSelectedTextColor : config.tagTextColor;
     label.label.backgroundColor = label.selected ? config.tagSelectedBackgroundColor : config.tagBackgroundColor;
+    label.label.opaque = YES;
+    label.opaque = YES;
 
     label.label.layer.cornerRadius = label.selected ? config.tagSelectedCornerRadius : config.tagCornerRadius;
     label.label.layer.borderWidth = label.selected ? config.tagSelectedBorderWidth : config.tagBorderWidth;
